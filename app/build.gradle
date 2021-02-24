@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.posdayandu.posdayandu"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "0.0.1"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            buildConfigField "Boolean", "DEBUG_MODE", "true"
+        }
+    }
+    flavorDimensions "mode"
+    productFlavors {
+        sandbox {
+            applicationId = "com.posdayandu.posdayandu"
+            buildConfigField "String", "BASE_URL", "\"http://9fd198c60a46.ngrok.io/api/\""
+            buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-rL7-7l-2vti14-6g\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.midtrans:uikit:1.22.2-SANDBOX'
+    sandboxImplementation 'com.midtrans:uikit:1.22.2-SANDBOX'
+    implementation 'com.github.Mohammed-Alaa:ValueCounter:1.0.0'
+    implementation 'com.github.hexdecimal16:EditTextPin:0.1.5'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation('com.google.android.libraries.places:places:2.4.0') {
+        exclude module: 'glide'
+    }
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.balysv:material-ripple:1.0.2'
+    implementation 'com.github.pchmn:MaterialChipsInput:1.0.8'
+    implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.synnapps:carouselview:0.1.5'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'com.budiyev.android:code-scanner:2.1.0'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.13.1'
+}

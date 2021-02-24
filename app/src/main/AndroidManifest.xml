@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.posdayandu.posdayandu">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".helper.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Midtrans"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup,android:usesCleartextTraffic">
+        <activity android:name=".Pesan_DaftarKader"></activity>
+        <activity android:name=".Pesan" />
+        <activity
+            android:name=".KirimSaldo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IsiSaldo"
+            android:screenOrientation="portrait"
+            android:theme="@style/Midtrans"></activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PutarVideo"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".KMS"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".KontrolKehamilan"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Imunisasi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Tentang"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Profil"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".qrcodescanner.QRCodeScannerJaripa"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".qrcodescanner.QRCodeScannerPosyandu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Beranda"
+            android:label="@string/title_activity_beranda"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".VerifikasiOTP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Intro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".helper.FirebaseCloudMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/bg_screen1" />
+    </application>
+
+</manifest>
